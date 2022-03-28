@@ -7,10 +7,7 @@ from .models import ToDoList, Item
 
 def index(request, id):
     tdls = ToDoList.objects.get(id=id)
-    my_dict = {
-        "name": tdls.name
-    }
-    return render(request, "myapp/base.html",my_dict)
+    return render(request, "myapp/list.html",{"tdls":tdls})
 
 def home(request):
     return render(request, "myapp/home.html",{})
